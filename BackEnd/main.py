@@ -208,6 +208,7 @@ async def resetar_esportivos():
     finally:
         await conn.close()
         
+        
 # 8. Listar vendas
 @app.get("/api/v1/vendas")
 async def listar_vendas():
