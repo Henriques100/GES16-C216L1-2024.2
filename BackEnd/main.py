@@ -173,6 +173,7 @@ async def atualizar_esportivo(esportivo_id: int, esportivo_atualizado: Atualizar
     finally:
         await conn.close()
         
+        
 # 6. Remover um esportivo pelo ID
 @app.delete("/api/v1/esportivos/{esportivos_id}")
 async def remover_esportivo(esportivo_id: int):
