@@ -1,17 +1,16 @@
 services:
 
-  BackEnd:
-    build: ./BackEnd
+  backend:
+    build: ./backend
     restart: always
     ports:
-    - "8000:8000"
-
+      - "8000:8000"
   db:
     image: postgres
     restart: always
     ports:
-    - "5432:5432"
-    enviroment:
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: postgres
-    POSTGRES_DB: esportivos  
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: esportivos

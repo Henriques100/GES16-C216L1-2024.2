@@ -63,12 +63,12 @@ async def esportivo_existe(tipo: str, modelo: str, conn: asyncpg.Connection):
 @app.post("/api/v1/esportivos/", status_code=201)
 async def adicionar_esportivo(esportivo: EsportivoBase):
     conn = await get_database()
-    if await esportivo_existe(tipo.modelo, tipo.empresa, conn):
+    if await esportivo_existe(esportivo.tipo, esportivo.modelo, conn):
        raise HTTPException(status_code=400, detail="Esportivo já existe.")
     try:
-        query = "INSERT INTO esportivos (tipo, modelo, empresa, quantidade, preco) VALUES ($1, $2, $3, $4)"
+        query = "INSERT INTO esportivos (tipo, modelo, empresa, quantidade, preco) VALUES ($1, $2, $3, $4, $5)"
         async with conn.transaction():
-            result = await conn.execute(query, tipo.modelo, tipo.empresa, tipo.quantidade, esportivo.preco)
+            result = await conn.execute(query, esportivo.tipo, esportivo.modelo, esportivo.empresa, esportivo.quantidade, esportivo.preco)
             return {"message": "Esportivo adicionado com sucesso!"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Falha ao adicionar o esportivo: {str(e)}")
@@ -151,25 +151,25 @@ async def atualizar_esportivo(esportivo_id: int, esportivo_atualizado: Atualizar
             raise HTTPException(status_code=404, detail="Esportivo não encontrado.")
                     
          # Atualizar apenas os campos fornecidos
-            update_query = """
-                UPDATE esportivos
-                SET tipo = COALESCE($1, tipo),
-                    modelo = COALESCE($2, modelo),
-                    empresa = COALESCE($3, empresa),
-                    quantidade = COALESCE($4, quantidade),
-                    preco = COALESCE($5, preco),
-                WHERE id = $6    
-            """
-            await conn.execute(
-                update_query,
-                esportivo_atualizado.tipo,
-                esportivo_atualizado.modelo,
-                esportivo_atualizado.empresa,
-                esportivo_atualizado.quantidade,
-                esportivo_atualizado.preco,
-                esportivo_id
-                )
-            return {"message": "Esportivo atualizado com sucesso"}
+        update_query = """
+            UPDATE esportivos
+            SET tipo = COALESCE($1, tipo),
+                modelo = COALESCE($2, modelo),
+                empresa = COALESCE($3, empresa),
+                quantidade = COALESCE($4, quantidade),
+                preco = COALESCE($5, preco),
+            WHERE id = $6    
+        """
+        await conn.execute(
+            update_query,
+            esportivo_atualizado.tipo,
+            esportivo_atualizado.modelo,
+            esportivo_atualizado.empresa,
+            esportivo_atualizado.quantidade,
+            esportivo_atualizado.preco,
+            esportivo_id
+            )
+        return {"message": "Esportivo atualizado com sucesso"}
     finally:
         await conn.close()
         
@@ -207,6 +207,7 @@ async def resetar_esportivos():
         return {"message": "Banco de dados limpo com sucesso!"}   
     finally:
         await conn.close()
+        
 # 8. Listar vendas
 @app.get("/api/v1/vendas")
 async def listar_vendas():
