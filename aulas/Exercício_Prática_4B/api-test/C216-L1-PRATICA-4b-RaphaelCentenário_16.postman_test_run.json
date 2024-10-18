@@ -1,0 +1,367 @@
+{
+	"id": "3f8547bb-2e6a-48c9-852a-108091d99111",
+	"name": "C216-L1-PRATICA-4b-RaphaelCentenário_16",
+	"timestamp": "2024-10-18T03:37:34.182Z",
+	"collection_id": "38409146-24fed39e-377d-421c-afcb-a202a020c552",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 20,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-10-18T03:37:30.686Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "e9eb1d93-0c6c-4554-9aa2-f4797d33213c",
+			"name": "Remover Todos os Esportivos (RESETAR BANCO DE DADOS)",
+			"url": "http://127.0.0.1:8000/api/v1/esportivos/",
+			"time": 627,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm deletion": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm deletion": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				627
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm deletion": true
+				}
+			]
+		},
+		{
+			"id": "1e20b90c-95ec-41d8-b954-129122df4a99",
+			"name": "Listar todos os esportivos",
+			"url": "http://127.0.0.1:8000/api/v1/esportivos/",
+			"time": 49,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should be a list": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should be a list": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				49
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should be a list": true
+				}
+			]
+		},
+		{
+			"id": "1bbe9570-7cb1-4f79-bbaa-62abb459b925",
+			"name": "Buscar Esportivo por ID",
+			"url": "http://127.0.0.1:8000/api/v1/esportivos/1",
+			"time": 102,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should contain book details": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should contain book details": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				102
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should contain book details": true
+				}
+			]
+		},
+		{
+			"id": "dec64792-d652-4a72-9afe-33a484ac483e",
+			"name": "Adicionar um Esportivo",
+			"url": "http://127.0.0.1:8000/api/v1/esportivos/",
+			"time": 117,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response should contain confirmation message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should contain confirmation message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				117
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response should contain confirmation message": true
+				}
+			]
+		},
+		{
+			"id": "a6908b1c-74dd-4181-939e-e6dfd5bade7d",
+			"name": "Vender um Esportivo",
+			"url": "http://127.0.0.1:8000/api/v1/esportivos/1/vender/",
+			"time": 367,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm sale": true,
+				"Quantidade do esportivo foi atualizada": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm sale": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Quantidade do esportivo foi atualizada": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				367
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm sale": true,
+					"Quantidade do esportivo foi atualizada": true
+				}
+			]
+		},
+		{
+			"id": "9423f368-1b9b-45ad-880b-7cea8f463c8b",
+			"name": "Listar todas as vendas",
+			"url": "http://127.0.0.1:8000/api/v1/vendas",
+			"time": 59,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm sales details": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm sales details": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				59
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm sales details": true
+				}
+			]
+		},
+		{
+			"id": "3b6898a8-3ed0-458e-93fa-6d3868698c44",
+			"name": "Atualizar Atributos de um Esportivo",
+			"url": "http://127.0.0.1:8000/api/v1/esportivos/1",
+			"time": 105,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm update": true,
+				"Os atributos do esportivo foram atualizados": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm update": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Os atributos do esportivo foram atualizados": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				105
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm update": true,
+					"Os atributos do esportivo foram atualizados": true
+				}
+			]
+		},
+		{
+			"id": "bcf3da38-cb68-41e2-a0a8-913cde4f44ae",
+			"name": "Remover um Esportivo",
+			"url": "http://127.0.0.1:8000/api/v1/esportivos/1",
+			"time": 119,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm deletion": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm deletion": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				119
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm deletion": true
+				}
+			]
+		},
+		{
+			"id": "2ad63635-6c7f-4273-8e10-006f83fcd4ef",
+			"name": "Remover Todos os Esportivos",
+			"url": "http://127.0.0.1:8000/api/v1/esportivos",
+			"time": 173,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm deletion": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm deletion": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				173
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm deletion": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1718,
+	"collection": {
+		"requests": [
+			{
+				"id": "e9eb1d93-0c6c-4554-9aa2-f4797d33213c",
+				"method": "DELETE"
+			},
+			{
+				"id": "1e20b90c-95ec-41d8-b954-129122df4a99",
+				"method": "GET"
+			},
+			{
+				"id": "1bbe9570-7cb1-4f79-bbaa-62abb459b925",
+				"method": "GET"
+			},
+			{
+				"id": "dec64792-d652-4a72-9afe-33a484ac483e",
+				"method": "POST"
+			},
+			{
+				"id": "a6908b1c-74dd-4181-939e-e6dfd5bade7d",
+				"method": "PUT"
+			},
+			{
+				"id": "9423f368-1b9b-45ad-880b-7cea8f463c8b",
+				"method": "GET"
+			},
+			{
+				"id": "3b6898a8-3ed0-458e-93fa-6d3868698c44",
+				"method": "PATCH"
+			},
+			{
+				"id": "bcf3da38-cb68-41e2-a0a8-913cde4f44ae",
+				"method": "DELETE"
+			},
+			{
+				"id": "2ad63635-6c7f-4273-8e10-006f83fcd4ef",
+				"method": "DELETE"
+			}
+		]
+	}
+}

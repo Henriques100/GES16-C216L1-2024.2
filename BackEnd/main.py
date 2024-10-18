@@ -140,7 +140,7 @@ async def vender_esportivo(esportivo_id: int, venda: VendaEsportivo):
         await conn.close()
         
 # 5. Atualizar atributos de um esportivo pelo ID (exceto o ID)
-@app.patch("/api/v1/esportivos/{esportivos_id}")
+@app.patch("/api/v1/esportivos/{esportivo_id}")
 async def atualizar_esportivo(esportivo_id: int, esportivo_atualizado: AtualizarEsportivo):
     conn = await get_database()
     try:
@@ -176,20 +176,20 @@ async def atualizar_esportivo(esportivo_id: int, esportivo_atualizado: Atualizar
         
 # 6. Remover um esportivo pelo ID
 @app.delete("/api/v1/esportivos/{id_esportivo}")
-async def remover_esportivo(esportivo_id: int):
+async def remover_esportivo(id_esportivo: int):
     conn = await get_database()
     try:
         # Verificar se o esportivo existe
         query = """
         SELECT * FROM esportivos WHERE id = $1
         """
-        esportivo = await conn.fetchrow(query, esportivo_id)
+        esportivo = await conn.fetchrow(query, id_esportivo)
         if esportivo is None:
             raise HTTPException(status_code=404, detail="Esportivo não encontrado.")
         
         # Remover o esportivo do banco de dados
         delete_query = "DELETE FROM esportivos WHERE id = $1"
-        await conn.execute(delete_query, esportivo_id)
+        await conn.execute(delete_query, id_esportivo)
         return {"message": "Esportivo removido com sucesso!"}
     finally:
         await conn.close()
