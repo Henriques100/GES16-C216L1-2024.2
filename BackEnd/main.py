@@ -95,7 +95,7 @@ async def listar_esportivo_por_id(esportivo_id: int):
     try:
      # Buscar o esportivo por ID 
      query = "SELECT * FROM esportivos WHERE id = $1"
-     esportivo = await conn.feychrow(query, esportivo_id)
+     esportivo = await conn.fetchrow(query, esportivo_id)
      if esportivo is None:
         raise HTTPException(status_code=404, detail="Esportivo não encontrado.")
      return dict(esportivo)
@@ -157,7 +157,7 @@ async def atualizar_esportivo(esportivo_id: int, esportivo_atualizado: Atualizar
                 modelo = COALESCE($2, modelo),
                 empresa = COALESCE($3, empresa),
                 quantidade = COALESCE($4, quantidade),
-                preco = COALESCE($5, preco),
+                preco = COALESCE($5, preco)
             WHERE id = $6    
         """
         await conn.execute(
@@ -175,7 +175,7 @@ async def atualizar_esportivo(esportivo_id: int, esportivo_atualizado: Atualizar
         
         
 # 6. Remover um esportivo pelo ID
-@app.delete("/api/v1/esportivos/{esportivos_id}")
+@app.delete("/api/v1/esportivos/{id_esportivo}")
 async def remover_esportivo(esportivo_id: int):
     conn = await get_database()
     try:
@@ -216,7 +216,7 @@ async def listar_vendas():
     conn = await get_database()
     try:
         # Buscar todas as venda no banco de dados
-        query = "SELECT * FORM vendas"
+        query = "SELECT * FROM vendas"
         rows = await conn.fetch(query)
         vendas = [dict(row) for row in rows]
         return vendas

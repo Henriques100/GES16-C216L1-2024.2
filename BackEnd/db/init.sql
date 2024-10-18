@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS "vendas"
-DROP TABLE IF EXISTS "esportivos"
+DROP TABLE IF EXISTS "vendas";
+DROP TABLE IF EXISTS "esportivos";
 
 CREATE TABLE "esportivos" (
     "id" SERIAL PRIMARY KEY,
@@ -12,7 +12,7 @@ CREATE TABLE "esportivos" (
 
 CREATE TABLE "vendas" (
     "id" SERIAL PRIMARY KEY,
-    "id_esportivos" INTEGER REFERENCES "esportivos"(id) ON DELETE CASCADE,
+    "esportivo_id" INTEGER REFERENCES "esportivos"(id) ON DELETE CASCADE,
     "quantidade_vendida" INTEGER NOT NULL,
     "valor_venda" FLOAT NOT NULL,
     "data_venda" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
