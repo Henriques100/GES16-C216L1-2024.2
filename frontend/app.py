@@ -19,8 +19,8 @@ def inserir_esportivo_form():
 
 # Rota para enviar os dados do formulário de cadastro para a API
 @app.route('/inserir', methods=['POST'])
-def inserir_livro():
-    modelo = request.form['modelo']
+def inserir_esportivo():
+    modelo = request.form.get['modelo']
     empresa = request.form['empresa']
     quantidade = request.form['quantidade']
     preco = request.form['preco']
@@ -60,7 +60,7 @@ def atualizar_esportivo_form(esportivo_id):
     esportivo = esportivos[0]
     return render_template('atualizar.html', esportivo=esportivo)
 
-# Rota para enviar os dados do formulário de edição de livro para a API
+# Rota para enviar os dados do formulário de edição do esportivo para a API
 @app.route('/atualizar/<int:esportivo_id>', methods=['POST'])
 def atualizar_esportivo(esportivo_id):
     modelo = request.form['modelo']
@@ -76,6 +76,7 @@ def atualizar_esportivo(esportivo_id):
         'preco' : preco
     }
 
+    print("Payload: ", payload)
     response = requests.patch(f"{API_BASE_URL}/api/v1/esportivos/{esportivo_id}", json=payload)
     
     if response.status_code == 200:
@@ -118,7 +119,7 @@ def listar_vendas():
         vendas = response.json()
     except:
         vendas = []
-    #salvando nomes dos esportivos vendidos
+    # salvando nomes dos esportivos vendidos
     total_vendas = 0
     for venda in vendas:
         total_vendas += float(venda['valor_venda'])
@@ -126,7 +127,7 @@ def listar_vendas():
 
 # Rota para excluir um esportivo
 @app.route('/excluir/<int:esportivo_id>', methods=['POST'])
-def excluir_livro(esportivo_id):
+def excluir_esportivo(esportivo_id):
     response = requests.delete(f"{API_BASE_URL}/api/v1/esportivos/{esportivo_id}")
     
     if response.status_code == 200  :

@@ -9,14 +9,14 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">Atualizar Livro</a>
+        <a class="navbar-brand" href="#">Atualizar Esportivo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
-            <a class="nav-link" href="/cadastro">Cadastrar Livro</a>
+            <a class="nav-link" href="/cadastro">Cadastrar Esportivo</a>
             <a class="nav-link" href="/estoque">Mostrar Estoque</a>
             <a class="nav-link" href="/vendas">Mostrar vendas realizadas</a>
             </div>
@@ -27,13 +27,13 @@
     <div class="container-fluid">
         <form action="/atualizar/{{ esportivo.id }}" method="POST">
             <label for="titulo" class="form-label">Título:</label><br>
-            <input type="text" id="modelo" name="Modelo" value="{{ livro.titulo }}" class="form-control"><br>
+            <input type="text" id="modelo" name="Modelo" value="{{ esportivo.titulo }}" class="form-control"><br>
             <label for="autor" class="form-label">Autor:</label><br>
-            <input type="text" id="empresa" name="Empresa" value="{{ livro.autor }}" class="form-control"><br>
+            <input type="text" id="empresa" name="Empresa" value="{{ esportivo.autor }}" class="form-control"><br>
             <label for="quantidade" class="form-label">Quantidade:</label><br>
-            <input type="text" id="quantidade" name="quantidade" value="{{ livro.quantidade }}" class="form-control"><br><br>
+            <input type="text" id="quantidade" name="quantidade" value="{{ esportivo.quantidade }}" class="form-control"><br><br>
             <label for="preco" class="form-label">Preço:</label><br>
-            <input type="text" id="preco" name="preco" value="{{ livro.preco }}" class="form-control"><br><br>
+            <input type="text" id="preco" name="preco" value="{{ esportivo.preco }}" class="form-control"><br><br>
             <input type="submit" value="Atualizar" class="btn btn-primary">
         </form>
     </div>

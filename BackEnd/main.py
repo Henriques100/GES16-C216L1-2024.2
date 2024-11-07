@@ -63,7 +63,7 @@ async def adicionar_esportivo(esportivo: EsportivoBase):
     if await esportivo_existe(esportivo.modelo, esportivo.empresa, conn):
         raise HTTPException(status_code=400, detail="Esportivo já existe.")
     try:
-        query = "INSERT INTO livros (modelo, empresa, quantidade, preco) VALUES ($1, $2, $3, $4)"
+        query = "INSERT INTO esportivos (modelo, empresa, quantidade, preco) VALUES ($1, $2, $3, $4)"
         async with conn.transaction():
             result = await conn.execute(query, esportivo.modelo, esportivo.empresa, esportivo.quantidade, esportivo.preco)
             return {"message": "Esportivo adicionado com sucesso!"}
@@ -77,7 +77,7 @@ async def adicionar_esportivo(esportivo: EsportivoBase):
 async def listar_esportivos():
     conn = await get_database()
     try:
-        # Buscar todos os livros no banco de dados
+        # Buscar todos os esportivos no banco de dados
         query = "SELECT * FROM esportivos"
         rows = await conn.fetch(query)
         esportivos = [dict(row) for row in rows]
@@ -116,7 +116,7 @@ async def vender_esportivo(esportivo_id: int, venda: VendaEsportivo):
 
         # Atualizar a quantidade no banco de dados
         nova_quantidade = esportivo['quantidade'] - venda.quantidade
-        update_query = "UPDATE livros SET quantidade = $1 WHERE id = $2"
+        update_query = "UPDATE esportivos SET quantidade = $1 WHERE id = $2"
         await conn.execute(update_query, nova_quantidade, esportivo_id)
 
 
@@ -139,7 +139,7 @@ async def vender_esportivo(esportivo_id: int, venda: VendaEsportivo):
 
 # 5. Atualizar atributos de um esportivo pelo ID (exceto o ID)
 @app.patch("/api/v1/esportivos/{esportivo_id}")
-async def atualizar_livro(esportivo_id: int, esportivo_atualizacao: AtualizarEsportivo):
+async def atualizar_esportivo(esportivo_id: int, esportivo_atualizacao: AtualizarEsportivo):
     conn = await get_database()
     try:
         # Verificar se o esportivo existe

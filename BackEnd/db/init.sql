@@ -18,13 +18,13 @@ CREATE TABLE "vendas" (
     "data_venda" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Air Zoom Pegasus 39', 'Nike', 900, 700.00); // Tênis de corrida
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Copa America Pro', 'Adidas', 1500, 150.00); // Bola de futebol
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Pure Drive', 'Babolat', 800, 1500.00); // Raquete de tênis
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Run It', 'Adidas', 1000, 120.00); // Camiseta esportiva
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Forerunner 265', 'Garmin', 897, 2200.00); // Smarthwatch
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Rockrider ST 540', 'Decathlon', 1090, 3000.00); // Bicileta de montanha
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Challenger 2.0', 'Venum', 100, 250.00); // Luvas de boxe
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('K2 Trio LT 100', 'K2 Skates', 1500, 800.00); // Patins In_Line
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Ventral Lite', 'POC', 1100, 1100.00); // Capacete de Ciclismo
-INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('ACG Karst', 'Nike', 1500, 450.00) // Mochila esportiva
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Air Zoom Pegasus 39', 'Nike', 900, 700.00); 
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Copa America Pro', 'Adidas', 1500, 150.00); 
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Pure Drive', 'Babolat', 800, 1500.00);
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Run It', 'Adidas', 1000, 120.00); 
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Forerunner 265', 'Garmin', 897, 2200.00); 
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Rockrider ST 540', 'Decathlon', 1090, 3000.00); 
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Challenger 2.0', 'Venum', 100, 250.00); 
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('K2 Trio LT 100', 'K2 Skates', 1500, 800.00); 
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('Ventral Lite', 'POC', 1100, 1100.00); 
+INSERT INTO "esportivos" ("modelo", "empresa", "quantidade", "preco") VALUES ('ACG Karst', 'Nike', 1500, 450.00) 
