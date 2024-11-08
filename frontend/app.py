@@ -20,7 +20,7 @@ def inserir_esportivo_form():
 # Rota para enviar os dados do formulário de cadastro para a API
 @app.route('/inserir', methods=['POST'])
 def inserir_esportivo():
-    modelo = request.form.get['modelo']
+    modelo = request.form['modelo']
     empresa = request.form['empresa']
     quantidade = request.form['quantidade']
     preco = request.form['preco']
